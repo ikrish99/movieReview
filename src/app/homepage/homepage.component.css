@@ -1,0 +1,65 @@
+.card{
+    background-color: white;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    float: left;
+    cursor: pointer;
+}
+
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+}
+
+.menu{
+    margin-left: 9px;
+    height: 10%;
+}
+
+.noRating,.noRating:hover {
+    content: none !important;
+    cursor: not-allowed !important;
+}
+
+.analytics{
+    float: right;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.ratingPage{
+    float: left;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.sort{
+    margin-left: 76.7%;
+}
+
+.img{
+    width: 180px;
+}
+
+.sort button{
+    border: none;
+    color: blue;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sort label{
+    font-size: 13px;
+}

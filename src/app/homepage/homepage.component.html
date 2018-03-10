@@ -1,0 +1,58 @@
+<div>
+    <mat-card class="card menu">
+        <mat-card-content>
+          <button class="ratingPage" (click)="toggle('rating')">Movie Rating</button>
+          <button class="analytics" (click)="toggle('analytics')">Analytics</button>
+          <br>
+          <br>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+<br>
+
+<div [hidden]="rating">
+
+  <div>
+      <mat-card fxFlex="16.5" class="card sort">
+          <mat-card-content>
+            <label>Sort by : </label>
+            <button (click)="sort('name')">Name</button> |
+            <button (click)="sort('date')">Date</button>
+          </mat-card-content>
+      </mat-card>
+  </div>
+
+  <br>
+
+  <div *ngFor="let data of splitData" fxLayout="row" fxLayoutAlign="space-evenly center">
+    <div *ngFor="let record of data">
+      <div>
+          <mat-card fxFlex="100" class="card">
+              <mat-card-content>
+                <img class="img" [src]="record.image">
+                <br>
+                <strong>{{record.title}}</strong>
+                <br>Release Date : 
+                <label>{{record.releaseDate}}</label>
+                <br>
+                {{record.rating == 0 ? 'Not Rated' : 'Rating ' + record.rating}} <br>
+                <div class="rating">
+                  <span [ngClass]="{'noRating' : record.ratingDisable}" (click)="updateRating(record.$id, 5, record.ratingDisable)">☆</span>
+                  <span [ngClass]="{'noRating' : record.ratingDisable}" (click)="updateRating(record.$id, 4, record.ratingDisable)">☆</span>
+                  <span [ngClass]="{'noRating' : record.ratingDisable}" (click)="updateRating(record.$id, 3, record.ratingDisable)">☆</span>
+                  <span [ngClass]="{'noRating' : record.ratingDisable}" (click)="updateRating(record.$id, 2, record.ratingDisable)">☆</span>
+                  <span [ngClass]="{'noRating' : record.ratingDisable}" (click)="updateRating(record.$id, 1, record.ratingDisable)">☆</span>
+                </div>
+              </mat-card-content>
+            </mat-card>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+<div [hidden]="analytics">
+<app-analytics></app-analytics>
+</div>
